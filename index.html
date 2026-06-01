@@ -1,49 +1,81 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UX Design Portfolio | 進度紀錄</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UX Design Portfolio · Group 9</title>
+  <meta name="description" content="使用者體驗設計課程 Group 9 作品集：作業進度與期末專案「復健小助手」。">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/pages.css">
 </head>
-<body>
+<body data-page="home" id="top">
 
-    <nav>
-        <div class="logo">UX COURSE</div>
-        <ul>
-            <li><a href="#assignments">Assignments</a></li>
-            <li><a href="#final">Final Project</a></li>
-        </ul>
-    </nav>
+  <header data-site-header></header>
 
-    <header>
-        <h1>使用者體驗設計</h1>
-        <p>學習歷程與作業進度追蹤</p>
-    </header>
+  <main>
+    <!-- Hero -->
+    <section class="hero container">
+      <span class="eyebrow">使用者體驗設計 · UX Design</span>
+      <h1>Group 9 作品集</h1>
+      <p class="lead">從使用者研究到高保真原型，記錄我們的設計歷程，並打造期末專案「復健小助手 — 安全的居家復健運動指引」。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="final-project.html">看期末專案</a>
+        <a class="btn btn-outline" href="assignments.html">瀏覽作業進度</a>
+      </div>
+    </section>
 
-    <main id="assignments">
-        <div class="container">
-            <h2 class="section-title">作業進度 (6)</h2>
-            <div class="grid" id="assignment-grid">
-                </div>
+    <!-- 三大入口 -->
+    <section class="section container">
+      <div class="grid grid-3">
+        <a class="card entry-card" href="assignments.html">
+          <div class="entry-icon">🗂️</div>
+          <h3>作業進度</h3>
+          <p>HW #1–#6 的課程作業時間軸，從脈絡訪查到啟發式評估，每份作業都有獨立細節頁。</p>
+          <span class="entry-link">查看作業 →</span>
+        </a>
+        <a class="card entry-card" href="final-project.html">
+          <div class="entry-icon">📱</div>
+          <h3>期末專案 Case Study</h3>
+          <p>復健小助手的完整設計案例：問題、研究、流程、設計與成果展示。</p>
+          <span class="entry-link">查看案例 →</span>
+        </a>
+        <a class="card entry-card" href="./rehab-app/">
+          <div class="entry-icon">▶️</div>
+          <h3>開啟互動 App</h3>
+          <p>直接體驗復健小助手：點選身體部位、評估疼痛程度，取得專屬運動建議。</p>
+          <span class="entry-link">開啟 App ↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 期末專案預告 -->
+    <section class="section container">
+      <h2 class="section-title">期末專案</h2>
+      <div class="feature-banner">
+        <div>
+          <span class="eyebrow">Final Project</span>
+          <h2>復健小助手</h2>
+          <p class="muted">安全的居家復健運動指引</p>
+          <ul class="feature-points">
+            <li>對話式互動，點選身體部位告訴助手哪裡不舒服</li>
+            <li>疼痛量表分流，劇痛時優先提醒就醫、不貿然推薦運動</li>
+            <li>運動詳情含步驟、適用症狀、重要提醒與禁忌症</li>
+          </ul>
+          <div class="hero-actions" style="justify-content:flex-start">
+            <a class="btn btn-primary" href="./rehab-app/">開啟 App ↗</a>
+            <a class="btn btn-outline" href="final-project.html">看完整 Case Study</a>
+          </div>
         </div>
+        <div class="feature-visual">主視覺 / App 截圖（待補）</div>
+      </div>
+    </section>
+  </main>
 
-        <section id="final" class="container">
-            <h2 class="section-title">期末專案 (Final Project)</h2>
-            <div class="final-card">
-                <div class="status-tag">In Progress</div>
-                <h3>復健小助手 — 安全的居家復健運動指引</h3>
-                <p>互動式復健 App：點選身體部位、評估疼痛程度，取得專屬運動建議。</p>
-                <button class="btn" onclick="location.href='./rehab-app/'">查看詳情</button>
-            </div>
-        </section>
-    </main>
+  <footer data-site-footer></footer>
 
-    <footer>
-        <p>&copy; 2026 UX Design Class. Made with ✨</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="scripts/data.js"></script>
+  <script src="scripts/layout.js"></script>
 </body>
 </html>

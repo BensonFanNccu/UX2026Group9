@@ -1,0 +1,38 @@
+# ============================================================
+#  根目錄 .gitignore（整個 repo）
+#
+#  ⚠️ rehab-app/ 是 App 的 build 產物，但「刻意 commit」給 GitHub Pages
+#     服務，**千萬不要在這裡 ignore 它**。
+#     App 原始碼在 rehab-app-src/，有自己的 .gitignore。
+# ============================================================
+
+# --- 相依套件 ---
+node_modules/
+.pnp
+.pnp.js
+
+# --- 環境變數 ---
+.env
+.env.*
+!.env.example
+
+# --- Log ---
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- 編輯器 / 作業系統 ---
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.sw?
+
+# --- 暫存 ---
+.cache/
+*.tmp
