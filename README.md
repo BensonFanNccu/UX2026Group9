@@ -14,12 +14,13 @@
 
 ```
 UX2026Group9/
-├─ index.html              首頁（Hero + 三大入口）
-├─ assignments.html        作業時間軸（HW #1–#6，依課程進度表）
-├─ assignment.html         作業細節（?hw=hw1…hw6，單一 template）
-├─ final-project.html      期末 Case Study（骨架，內容待補）
-├─ styles/                 base.css（token/元件）· layout.css（nav/footer）· pages.css（各頁）
-├─ scripts/                data.js（資料）· layout.js（共用框架）· assignments.js · assignment-detail.js · case-study.js
+├─ index.html              首頁（根；Pages 入口）
+├─ shared/                 共用：base.css · layout.css（nav/footer/hero） · data.js（資料） · layout.js（注入 nav/footer）
+├─ home/                   首頁專屬：home.css · home.js
+├─ assignments/            作業總覽（時間軸）
+│   ├─ index.html · assignments.css · assignments.js
+│   └─ detail/             作業細節 template（?hw=hw1…6）：index.html · detail.css · detail.js
+├─ final-project/          期末 Case Study：index.html · final-project.css · final-project.js
 ├─ images/                 作品集圖片素材
 │
 ├─ rehab-app/              ← App build 產物（刻意 commit，Pages 服務這個，勿手改）
@@ -34,17 +35,17 @@ UX2026Group9/
 
 ## A. 入口網站（作品集，純靜態）
 
-**頁面**：`index.html` 首頁 ·  `assignments.html` 作業時間軸 ·  `assignment.html?hw=hwN` 作業細節 ·  `final-project.html` 期末 Case Study。
+**頁面**（一頁一資料夾，網址乾淨）：`/` 首頁 ·  `/assignments/` 作業時間軸 ·  `/assignments/detail/?hw=hwN` 作業細節 ·  `/final-project/` 期末 Case Study。
 
-**架構（模組化，避免一檔一坨 code）**
-- **共用 nav/footer** 由 `scripts/layout.js` 注入 → 每頁只寫自己的內容，導覽改一處全站同步。
-- **資料單一來源** `scripts/data.js`：`ASSIGNMENTS`（6 個 HW）、`SCHEDULE`（時間軸）。用全域變數、不靠 fetch，雙擊開檔(file://)也能跑。
-- **CSS 三層**：`base.css`（token/按鈕/卡片/標籤）、`layout.css`（nav/footer/hero/grid）、`pages.css`（時間軸/作業細節/Case Study）。
+**架構（一頁一 css/js，共用抽到 `shared/`）**
+- **共用** 全在 `shared/`：`base.css`（token/元件）、`layout.css`（nav/footer/hero/grid）、`data.js`（資料）、`layout.js`（注入 nav/footer）。資料用全域變數、不靠 fetch，`file://` 或 http 都能跑。
+- **每頁專屬** 一份 css + 一份 js，與該頁 `index.html` 放同資料夾（如 `assignments/assignments.css`、`assignments/assignments.js`）。
+- **深度感知連結**：各頁 `<body data-root="…">` 標出到站台根的相對前綴（根=`""`、`/assignments/`=`"../"`、`/assignments/detail/`=`"../../"`）；`shared/layout.js` 依此組出 nav/CTA 連結，故任何資料夾深度都正確。**新增頁面記得設對 `data-root`。**
 - Case Study 章節與作業 **HW #1–#6 一對一對應**。
 
 **改內容**
-- 作業名稱 / 進度 `status` / 細節 → 改 `scripts/data.js`（`status` 目前是佔位，請依實際更新）。
-- Case Study 各章內容 → 改 `final-project.html`（目前為佔位骨架）。
+- 作業名稱 / 進度 `status` / 細節 → 改 `shared/data.js`（`status` 目前是佔位，請依實際更新）。
+- Case Study 各章內容 → 改 `final-project/index.html`（目前為佔位骨架）。
 - 圖片 → 放 `images/`，用**相對路徑**引用、加 `loading="lazy"`。
 
 **本機預覽**（純靜態，不需 build）

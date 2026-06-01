@@ -1,0 +1,41 @@
+/* =============================================================
+   final-project.css — 期末 Case Study 專屬：hero / 側邊 TOC / 章節 / CTA
+   （共用樣式在 shared/base.css、shared/layout.css）
+   ============================================================= */
+
+.cs-hero { text-align: center; padding: 3.5rem 0 2.5rem; }
+.cs-hero .cs-meta { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; color: var(--text-light); font-size: 0.85rem; margin: 1.25rem 0 1.75rem; }
+
+.cs-layout { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: start; }
+
+/* 側邊章節導覽（sticky TOC） */
+.cs-toc { position: sticky; top: 96px; }
+.cs-toc p { font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.75rem; }
+.cs-toc ul { list-style: none; display: grid; gap: 0.5rem; border-left: 2px solid var(--line); }
+.cs-toc a { display: block; padding: 0.15rem 0 0.15rem 0.9rem; margin-left: -2px; font-size: 0.85rem; color: var(--text-light); border-left: 2px solid transparent; }
+.cs-toc a:hover { text-decoration: none; color: var(--medical-blue); }
+.cs-toc a.is-active { color: var(--medical-blue); border-left-color: var(--medical-blue); font-weight: 600; }
+
+/* 章節（骨架佔位） */
+.cs-section { padding: 1.5rem 0 2.5rem; border-bottom: 1px solid var(--line); scroll-margin-top: 90px; }
+.cs-section:last-of-type { border-bottom: 0; }
+.cs-section .cs-num { font-size: 0.75rem; letter-spacing: 1px; color: var(--accent-color); font-weight: 700; }
+.cs-section h2 { margin: 0.25rem 0 0.4rem; }
+.cs-section .cs-map { font-size: 0.78rem; color: var(--text-light); margin-bottom: 1rem; }
+
+/* 開啟 App 區塊 */
+.cs-cta {
+  background: var(--medical-blue); color: #fff; border-radius: var(--radius-lg);
+  padding: clamp(2rem, 5vw, 3rem); text-align: center; margin: 1rem 0;
+}
+.cs-cta h3 { color: #fff; margin-bottom: 0.5rem; }
+.cs-cta p { color: rgba(255,255,255,0.85); margin-bottom: 1.5rem; }
+.cs-cta .btn { background: #fff; color: var(--medical-blue); }
+.cs-cta .btn:hover { background: #f0f0f0; }
+
+@media (max-width: 860px) {
+  .cs-layout { grid-template-columns: 1fr; gap: 1rem; }
+  .cs-toc { position: static; border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem; margin-bottom: 1rem; }
+  .cs-toc ul { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); border-left: 0; }
+  .cs-toc a { border-left: 0; padding-left: 0; }
+}

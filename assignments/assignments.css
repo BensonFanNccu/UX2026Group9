@@ -1,0 +1,44 @@
+/* =============================================================
+   assignments.css — 作業總覽專屬：課程進度時間軸
+   （共用樣式在 shared/base.css、shared/layout.css）
+   ============================================================= */
+
+.timeline { position: relative; max-width: 760px; margin: 0 auto; padding-left: 2.5rem; }
+.timeline::before {
+  content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px;
+  width: 2px; background: var(--line);
+}
+.tl-session { position: relative; padding-bottom: 1.25rem; }
+.tl-session::before {     /* 節點圓點 */
+  content: ''; position: absolute; left: -2.5rem; top: 6px;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--bg-color); border: 2px solid var(--line);
+}
+.tl-session.has-events::before { border-color: var(--accent-color); }
+.tl-session.is-empty { padding-bottom: 0.5rem; }
+.tl-session.is-empty::before { width: 10px; height: 10px; left: calc(-2.5rem + 5px); top: 10px; background: var(--line); border: 0; }
+
+.tl-events { display: grid; gap: 0.75rem; }
+
+/* 繳交里程碑 */
+.tl-due {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--progress-bg); color: var(--progress);
+  border-radius: 999px; padding: 0.35rem 0.9rem; font-size: 0.8rem; font-weight: 600;
+  width: fit-content;
+}
+.tl-due .tl-note { display: block; color: var(--text-light); font-weight: 400; font-size: 0.78rem; margin-top: 0.35rem; padding-left: 0.2rem; }
+
+/* 作業卡（可點進細節） */
+.tl-hw {
+  display: block; background: var(--card-bg); border: 1px solid var(--line);
+  border-left: 4px solid var(--medical-blue); border-radius: var(--radius);
+  padding: 1rem 1.25rem; box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.tl-hw:hover { text-decoration: none; transform: translateX(4px); box-shadow: var(--shadow-hover); }
+.tl-hw .tl-hw-top { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; }
+.tl-hw .tl-code { font-size: 0.72rem; letter-spacing: 1px; color: var(--medical-blue); font-weight: 700; }
+.tl-hw h3 { margin: 0.2rem 0; color: #333; }
+.tl-hw .tl-hw-zh { color: var(--text-light); font-size: 0.85rem; }
+.tl-hw .tl-arrow { color: var(--medical-blue); font-weight: 700; }

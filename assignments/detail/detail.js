@@ -1,6 +1,7 @@
 /* =============================================================
-   assignment-detail.js — 作業細節頁（單一 template，由 ?hw= 決定內容）
-   每個 HW 都有獨立網址：assignment.html?hw=hw1 … hw6
+   detail.js — 作業細節頁（單一 template，由 ?hw= 決定內容）
+   位於 assignments/detail/，每個 HW 都有獨立網址：detail/?hw=hw1 … hw6
+   返回總覽 → ../；上一個/下一個 → 同頁換 query（?hw=…）。
    內容目前為骨架佔位（sections 的 body 多為空）。
    ============================================================= */
 (function () {
@@ -26,7 +27,7 @@
   if (idx === -1) {
     mount.innerHTML =
       '<div class="detail-head">' +
-        '<a class="back-link" href="assignments.html">← 返回作業進度</a>' +
+        '<a class="back-link" href="../">← 返回作業進度</a>' +
         '<h1>找不到這份作業</h1>' +
         '<p class="summary">請從作業進度頁重新選擇。</p>' +
       '</div>';
@@ -47,18 +48,18 @@
     return '<section class="detail-section"><h2>' + escapeHtml(s.heading) + '</h2>' + body + '</section>';
   }).join('');
 
-  // 上一個 / 下一個
+  // 上一個 / 下一個（同頁換 query）
   function navLink(target, dir) {
     if (!target) return '<span class="disabled">' + (dir === 'prev' ? '← 沒有上一個' : '沒有下一個 →') + '</span>';
     var arrow = dir === 'prev' ? '← ' : '';
     var tail = dir === 'next' ? ' →' : '';
-    return '<a href="assignment.html?hw=' + encodeURIComponent(target.id) + '">' +
+    return '<a href="?hw=' + encodeURIComponent(target.id) + '">' +
       arrow + target.code + '：' + escapeHtml(target.title) + tail + '</a>';
   }
 
   mount.innerHTML =
     '<div class="detail-head">' +
-      '<a class="back-link" href="assignments.html">← 返回作業進度</a>' +
+      '<a class="back-link" href="../">← 返回作業進度</a>' +
       '<span class="detail-code">' + escapeHtml(a.code) + '</span>' +
       '<h1>' + escapeHtml(a.title) + '</h1>' +
       '<div class="detail-meta">' +

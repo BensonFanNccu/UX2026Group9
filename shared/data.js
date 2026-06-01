@@ -4,14 +4,16 @@
    要改作業內容 / 進度，改這裡就好，列表頁、細節頁、時間軸會一起更新。
    ============================================================= */
 
-/* 全站設定：導覽列、頁尾等 */
+/* 全站設定：導覽列、頁尾等
+   nav/app 的 path 皆為 root-relative（相對站台根），實際 href 由 layout.js
+   依各頁 <body data-root> 加上前綴，確保在任何資料夾深度都正確。 */
 window.SITE = {
   brand: 'UX · GROUP 9',
-  appUrl: './rehab-app/',            // 復健小助手（既有 build 產物，外連）
+  appPath: 'rehab-app/',             // 復健小助手（既有 build 產物，外連）
   nav: [
-    { label: '首頁', href: 'index.html', page: 'home' },
-    { label: '作業進度', href: 'assignments.html', page: 'assignments' },
-    { label: '期末專案', href: 'final-project.html', page: 'final' },
+    { label: '首頁', path: '', page: 'home' },
+    { label: '作業進度', path: 'assignments/', page: 'assignments' },
+    { label: '期末專案', path: 'final-project/', page: 'final' },
   ],
   footer: '© 2026 UX Design Class · Group 9 · Made with ✨',
 };

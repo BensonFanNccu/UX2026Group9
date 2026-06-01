@@ -6,11 +6,11 @@
   <title>UX Design Portfolio · Group 9</title>
   <meta name="description" content="使用者體驗設計課程 Group 9 作品集：作業進度與期末專案「復健小助手」。">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/pages.css">
+  <link rel="stylesheet" href="shared/base.css">
+  <link rel="stylesheet" href="shared/layout.css">
+  <link rel="stylesheet" href="home/home.css">
 </head>
-<body data-page="home" id="top">
+<body data-page="home" data-root="" id="top">
 
   <header data-site-header></header>
 
@@ -21,27 +21,27 @@
       <h1>Group 9 作品集</h1>
       <p class="lead">從使用者研究到高保真原型，記錄我們的設計歷程，並打造期末專案「復健小助手 — 安全的居家復健運動指引」。</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="final-project.html">看期末專案</a>
-        <a class="btn btn-outline" href="assignments.html">瀏覽作業進度</a>
+        <a class="btn btn-primary" href="final-project/">看期末專案</a>
+        <a class="btn btn-outline" href="assignments/">瀏覽作業進度</a>
       </div>
     </section>
 
     <!-- 三大入口 -->
     <section class="section container">
       <div class="grid grid-3">
-        <a class="card entry-card" href="assignments.html">
+        <a class="card entry-card" href="assignments/">
           <div class="entry-icon">🗂️</div>
           <h3>作業進度</h3>
           <p>HW #1–#6 的課程作業時間軸，從脈絡訪查到啟發式評估，每份作業都有獨立細節頁。</p>
           <span class="entry-link">查看作業 →</span>
         </a>
-        <a class="card entry-card" href="final-project.html">
+        <a class="card entry-card" href="final-project/">
           <div class="entry-icon">📱</div>
           <h3>期末專案 Case Study</h3>
           <p>復健小助手的完整設計案例：問題、研究、流程、設計與成果展示。</p>
           <span class="entry-link">查看案例 →</span>
         </a>
-        <a class="card entry-card" href="./rehab-app/">
+        <a class="card entry-card" href="rehab-app/">
           <div class="entry-icon">▶️</div>
           <h3>開啟互動 App</h3>
           <p>直接體驗復健小助手：點選身體部位、評估疼痛程度，取得專屬運動建議。</p>
@@ -64,8 +64,8 @@
             <li>運動詳情含步驟、適用症狀、重要提醒與禁忌症</li>
           </ul>
           <div class="hero-actions" style="justify-content:flex-start">
-            <a class="btn btn-primary" href="./rehab-app/">開啟 App ↗</a>
-            <a class="btn btn-outline" href="final-project.html">看完整 Case Study</a>
+            <a class="btn btn-primary" href="rehab-app/">開啟 App ↗</a>
+            <a class="btn btn-outline" href="final-project/">看完整 Case Study</a>
           </div>
         </div>
         <div class="feature-visual">主視覺 / App 截圖（待補）</div>
@@ -75,7 +75,8 @@
 
   <footer data-site-footer></footer>
 
-  <script src="scripts/data.js"></script>
-  <script src="scripts/layout.js"></script>
+  <script src="shared/data.js"></script>
+  <script src="shared/layout.js"></script>
+  <script src="home/home.js"></script>
 </body>
 </html>

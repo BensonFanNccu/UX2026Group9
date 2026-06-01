@@ -1,6 +1,7 @@
 /* =============================================================
    assignments.js — 作業總覽：把 SCHEDULE 渲染成課程時間軸
    （對照課程進度表：HW 指派 + Due 里程碑交錯）
+   HW 卡連到同層的 detail/ template（固定相對路徑）。
    ============================================================= */
 (function () {
   'use strict';
@@ -29,7 +30,7 @@
     if (!a) return '';
     var st = STATUS[a.status] || { label: a.status, cls: '' };
     return '' +
-      '<a class="tl-hw" href="assignment.html?hw=' + encodeURIComponent(a.id) + '">' +
+      '<a class="tl-hw" href="detail/?hw=' + encodeURIComponent(a.id) + '">' +
         '<div class="tl-hw-top">' +
           '<span class="tl-code">' + escapeHtml(a.code) + '</span>' +
           '<span class="tag ' + st.cls + '">' + st.label + '</span>' +
