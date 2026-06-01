@@ -1,0 +1,12 @@
+# Normalize all text files to LF in the repo so diffs stay clean on Windows.
+# Keeps line-ending noise out of `git diff`, so you can see exactly which
+# files you changed and need to copy back into Figma Make.
+* text=auto eol=lf
+
+# Treat image assets as binary (never line-ending converted).
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
