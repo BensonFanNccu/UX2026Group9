@@ -22,6 +22,7 @@
 .cs-section .cs-num { font-size: 0.75rem; letter-spacing: 1px; color: var(--accent-color); font-weight: 700; }
 .cs-section h2 { margin: 0.25rem 0 0.4rem; }
 .cs-section .cs-map { font-size: 0.78rem; color: var(--text-light); margin-bottom: 1rem; }
+.cs-section p { margin-bottom: 0.5rem; }
 
 /* 開啟 App 區塊 */
 .cs-cta {

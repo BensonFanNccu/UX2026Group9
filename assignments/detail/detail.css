@@ -10,8 +10,23 @@
 .detail-head .summary { margin-top: 1rem; color: var(--text-light); max-width: 70ch; }
 
 .detail-section { margin-bottom: 1.5rem; }
-.detail-section h2 { font-size: 1.15rem; margin-bottom: 0.75rem; }
+.detail-section h2 { font-size: 1.35rem; margin-bottom: 0.75rem; }
 
 .detail-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1.5rem; }
 .detail-nav a { font-size: 0.9rem; max-width: 48%; }
 .detail-nav .disabled { color: var(--line); pointer-events: none; }
+
+/* 內文清單 / 小標 */
+.detail-section p { margin-bottom: 0.5rem; }
+.detail-section ul { list-style: disc; margin: 0.4rem 0 0.9rem 1.3rem; }
+.detail-section li { margin-bottom: 0.35rem; }
+.detail-subhead { font-size: 1.1rem; font-weight: 700; color: #333; margin: 1.1rem 0 0.3rem; }
+
+/* 大段分隔：HW #1.1 / HW #1.2 */
+.detail-part {
+  font-size: 1.5rem; font-weight: 700; letter-spacing: 1px;
+  color: var(--medical-blue);
+  margin: 2rem 0 1rem; padding-top: 1.25rem;
+  border-top: 2px solid var(--medical-blue);
+}
+.detail-link { margin-top: 0.75rem; font-weight: 600; }

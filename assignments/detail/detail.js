@@ -41,12 +41,36 @@
   var milestone = a.milestone
     ? '<span class="muted" style="font-size:.85rem">· ' + escapeHtml(a.milestone) + '</span>' : '';
 
-  var sections = (a.sections || []).map(function (s) {
-    var body = s.body
-      ? '<p>' + escapeHtml(s.body) + '</p>'
-      : '<div class="placeholder">（內容待補）</div>';
-    return '<section class="detail-section"><h2>' + escapeHtml(s.heading) + '</h2>' + body + '</section>';
-  }).join('');
+  function listHtml(items) {
+    return '<ul>' + (items || []).map(function (i) {
+      return '<li>' + escapeHtml(i) + '</li>';
+    }).join('') + '</ul>';
+  }
+
+  // 一個 section 可有：part（大段分隔）、body（段落）、bullets（清單）、
+  // groups（小標+清單）、link（外部連結）；內容皆無 → 佔位
+  function renderSection(s) {
+    var part = s.part ? '<h2 class="detail-part">' + escapeHtml(s.part) + '</h2>' : '';
+    var inner = '<h2>' + escapeHtml(s.heading) + '</h2>';
+    var hasContent = false;
+    if (s.body) { inner += '<p>' + escapeHtml(s.body) + '</p>'; hasContent = true; }
+    if (s.bullets && s.bullets.length) { inner += listHtml(s.bullets); hasContent = true; }
+    if (s.groups && s.groups.length) {
+      s.groups.forEach(function (g) {
+        inner += '<h3 class="detail-subhead">' + escapeHtml(g.subheading) + '</h3>' + listHtml(g.items);
+      });
+      hasContent = true;
+    }
+    if (s.link && s.link.label) {
+      inner += '<p class="detail-link"><a href="' + escapeHtml(s.link.href || '#') + '">' +
+        escapeHtml(s.link.label) + ' →</a></p>';
+      hasContent = true;
+    }
+    if (!hasContent) inner += '<div class="placeholder">（內容待補）</div>';
+    return part + '<section class="detail-section">' + inner + '</section>';
+  }
+
+  var sections = (a.sections || []).map(renderSection).join('');
 
   // 上一個 / 下一個（同頁換 query）
   function navLink(target, dir) {
