@@ -11,7 +11,8 @@ export default function App() {
     <HashRouter>
       <div className="size-full">
         <Routes>
-          <Route path="/" element={<AssistantScreen />} />
+          <Route path="/" element={<WelcomeScreen />} />
+          <Route path="/assistant" element={<AssistantScreen />} />
           <Route path="/exercises" element={<BodySelector />} />
           <Route path="/exercises/:bodyPartId" element={<ExerciseList />} />
           <Route path="/exercises/:bodyPartId/:exerciseId" element={<ExerciseDetail />} />

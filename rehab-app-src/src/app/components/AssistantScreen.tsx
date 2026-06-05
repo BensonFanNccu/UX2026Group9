@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import { Send, Bot, AlertTriangle, Play, Mic } from 'lucide-react';
+import { Send, Bot, AlertTriangle, Play, Mic, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import bodyImageFront from '../../imports/image-1.png';
 import bodyImageBack from '../../imports/image-2.png';
@@ -339,6 +339,13 @@ export function AssistantScreen() {
       {/* Header */}
       <div className="bg-white border-b border-gray-200 px-4 py-3 flex-shrink-0 sticky top-[52px] z-10">
         <div className="flex items-center gap-3">
+          <button
+            onClick={() => navigate('/')}
+            className="flex-shrink-0 text-[var(--medical-blue)] active:scale-95"
+            aria-label="回到主頁"
+          >
+            <ArrowLeft className="w-6 h-6" />
+          </button>
           <div className="flex items-center gap-2 flex-1">
             <div className="w-10 h-10 bg-[var(--medical-blue)] rounded-full flex items-center justify-center">
               <Bot className="w-6 h-6 text-white" />

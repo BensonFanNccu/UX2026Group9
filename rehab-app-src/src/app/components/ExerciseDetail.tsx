@@ -270,7 +270,7 @@ export function ExerciseDetail() {
       <div className="bg-white border-b border-gray-200 sticky top-0 z-10">
         <div className="px-4 py-3">
           <button
-            onClick={() => navigate(fromAssistant ? '/' : `/exercises/${bodyPartId}`)}
+            onClick={() => navigate(fromAssistant ? '/assistant' : `/exercises/${bodyPartId}`)}
             className="flex items-center gap-2 text-[var(--medical-blue)] active:text-[var(--medical-teal)] mb-2 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
