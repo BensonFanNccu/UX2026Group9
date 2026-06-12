@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import { Send, Bot, AlertTriangle, Play, Mic, ArrowLeft } from 'lucide-react';
+import { Send, Bot, AlertTriangle, PersonStanding, Mic, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import bodyImageFront from '../../imports/image-1.png';
 import bodyImageBack from '../../imports/image-2.png';
@@ -443,8 +443,9 @@ export function AssistantScreen() {
                       className="bg-gradient-to-r from-blue-50 to-blue-100 border-2 border-[var(--medical-blue)] rounded-xl p-4 shadow-md"
                     >
                       <div className="flex items-start gap-3 mb-3">
-                        <div className="w-14 h-14 bg-[var(--medical-blue)] rounded-lg flex items-center justify-center flex-shrink-0">
-                          <Play className="w-7 h-7 text-white" />
+                        {/* 運動縮圖（示意）：淺藍底＋人形，刻意不做成可點的播放鍵，避免使用者誤點 */}
+                        <div className="w-14 h-14 bg-[var(--medical-blue-light)] rounded-lg flex items-center justify-center flex-shrink-0">
+                          <PersonStanding className="w-7 h-7 text-[var(--medical-blue)]" />
                         </div>
                         <div className="flex-1">
                           <h3 className="text-lg font-bold text-gray-900 mb-1">

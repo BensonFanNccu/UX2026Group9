@@ -1,3 +1,14 @@
 @import './fonts.css';
 @import './tailwind.css';
 @import './theme.css';
+
+/* 全頁高度（原本在 index.html 的 inline <style>，移到此處以避開 Vite html-inline-proxy build 問題） */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  height: 100%;
+}
